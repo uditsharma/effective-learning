@@ -1,0 +1,12 @@
+build
+gradle.properties
+.gradle
+local.properties
+.idea/
+*.iml
+.DS_Store
+classes/
+
+out/
+
+src/main/resources/myconfig\.properties
