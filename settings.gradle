@@ -1,0 +1,3 @@
+include 'swf-samples'
+findProject(':swf-samples')?.name = 'com.udit.swf-sample'
+
