@@ -4,14 +4,17 @@ import java.util.HashSet;
 
 //https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/
 public class CircularTour {
-    static class PetrolPump {
-        int petrolCapacity;
-        int distanceToNextPetrolPump;
+    public static void main(String[] args) {
+        //96 25 46 83 68 15 65 35 51 44 9 88 79 77 85 89
+        //55 52 33 100 77 61 40 69
 
-        public PetrolPump(int petrolCapacity, int distanceToNextPetrolPump) {
-            this.petrolCapacity = petrolCapacity;
-            this.distanceToNextPetrolPump = distanceToNextPetrolPump;
-        }
+        PetrolPump[] pumps = new PetrolPump[4];
+        pumps[0] = new PetrolPump(55, 52);
+        pumps[1] = new PetrolPump(33, 100);
+        pumps[2] = new PetrolPump(77, 61);
+        pumps[3] = new PetrolPump(40, 56);
+        int tourStartIndex = new CircularTour().findTourStartIndex(pumps);
+        System.out.println("tourStartIndex = " + tourStartIndex);
     }
 
     int findTourStartIndex(PetrolPump[] pumps) {
@@ -20,7 +23,7 @@ public class CircularTour {
             int size = pumps.length;
             index = 0;
             int start = 0, end = size - 1;
-            int lastStartingPetrolPump = 0, visitedPupms=0;
+            int lastStartingPetrolPump = 0, visitedPupms = 0;
             for (; visitedPupms != size; ) {
                 int distance = pumps[start].distanceToNextPetrolPump;
                 currPatrol = currPatrol + pumps[start].petrolCapacity;
@@ -33,7 +36,7 @@ public class CircularTour {
                     } else {
                         index = start;
                         lastStartingPetrolPump = index;
-                        visitedPupms=0;
+                        visitedPupms = 0;
                     }
                     end = (start + end) % size;
                 } else {
@@ -48,16 +51,13 @@ public class CircularTour {
         return index;
     }
 
-    public static void main(String[] args) {
-        //96 25 46 83 68 15 65 35 51 44 9 88 79 77 85 89
-        //55 52 33 100 77 61 40 69
+    static class PetrolPump {
+        int petrolCapacity;
+        int distanceToNextPetrolPump;
 
-        PetrolPump[] pumps = new PetrolPump[4];
-        pumps[0] = new PetrolPump(55, 52);
-        pumps[1] = new PetrolPump(33, 100);
-        pumps[2] = new PetrolPump(77, 61);
-        pumps[3] = new PetrolPump(40, 56);
-        int tourStartIndex = new CircularTour().findTourStartIndex(pumps);
-        System.out.println("tourStartIndex = " + tourStartIndex);
+        public PetrolPump(int petrolCapacity, int distanceToNextPetrolPump) {
+            this.petrolCapacity = petrolCapacity;
+            this.distanceToNextPetrolPump = distanceToNextPetrolPump;
+        }
     }
 }

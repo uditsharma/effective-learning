@@ -4,21 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class JavaBased {
-    public static class LRUCache extends LinkedHashMap<String, String> {
-
-        private int capacity;
-
-        public LRUCache(int capacity) {
-            super(capacity, 0.75F, true);
-            this.capacity = capacity;
-        }
-
-        @Override
-        protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
-            return size() > capacity;
-        }
-    }
-
     public static void main(String[] args) {
         LRUCache cache = new LRUCache(5);
         cache.put("udit1", "1");
@@ -33,5 +18,20 @@ public class JavaBased {
         System.out.println(cache.get("udit2"));
         System.out.println(cache.get("udit3"));
         System.out.println(cache.get("udit4"));
+    }
+
+    public static class LRUCache extends LinkedHashMap<String, String> {
+
+        private int capacity;
+
+        public LRUCache(int capacity) {
+            super(capacity, 0.75F, true);
+            this.capacity = capacity;
+        }
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
+            return size() > capacity;
+        }
     }
 }

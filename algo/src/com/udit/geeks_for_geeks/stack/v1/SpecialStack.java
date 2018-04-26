@@ -16,32 +16,32 @@ import java.util.Stack;
  * @since 16 Feb, 2018 11:11 PM
  */
 public class SpecialStack extends Stack<Integer> {
-  private Stack<Integer> min = new Stack<>();
+    private Stack<Integer> min = new Stack<>();
 
-  @Override
-  public Integer push(Integer item) {
-    if (item != null) {
-      Integer minimumValue = null;
-      if (!min.isEmpty()) {
-        minimumValue = min.peek();
-      }
-      if (minimumValue == null || minimumValue >= item) {
-        min.push(item);
-      }
-      return super.push(item);
+    @Override
+    public Integer push(Integer item) {
+        if (item != null) {
+            Integer minimumValue = null;
+            if (!min.isEmpty()) {
+                minimumValue = min.peek();
+            }
+            if (minimumValue == null || minimumValue >= item) {
+                min.push(item);
+            }
+            return super.push(item);
+        }
+        return null;
     }
-    return null;
-  }
 
-  @Override
-  public synchronized Integer pop() {
-    return super.pop();
-  }
-
-  public Integer getMin() {
-    if (!min.isEmpty()) {
-      return min.pop();
+    @Override
+    public synchronized Integer pop() {
+        return super.pop();
     }
-    return -1;
-  }
+
+    public Integer getMin() {
+        if (!min.isEmpty()) {
+            return min.pop();
+        }
+        return -1;
+    }
 }

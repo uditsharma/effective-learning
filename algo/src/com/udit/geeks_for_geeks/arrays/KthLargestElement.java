@@ -14,36 +14,35 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 12 Jan, 2018 10:21 PM
  */
 public class KthLargestElement {
-  int bubbleSort(int[] arr, int kth) {
-    int KthElement = 0;
-    if (arr != null && arr.length > 1) {
-      int n = arr.length;
-      boolean swapped = true;
-      int k = 0;
-      while (n > 0 && swapped && k < kth) {
-        swapped = false;
-        for (int i = 0; i < n - 1; i++) {
-          if (arr[i] > arr[i + 1]) {
-            int temp = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = temp;
-            swapped = true;
-          }
-          KthElement = arr[n - 1];
-        }
-        k++;
-        n--;
-      }
+    public static void main(String[] args) {
+        int[] arr = {16, 3, 10, 8, 7, 9, 5, 2, 4, 1};
+
+        System.out.println("arr.toString() = " + new KthLargestElement().bubbleSort(arr, 5));
     }
-   return KthElement;
-  }
 
-  // you can do by making max heap and getMax ktimes.
+    // you can do by making max heap and getMax ktimes.
 
-
-  public static void main(String[] args) {
-    int[] arr = {16, 3, 10, 8, 7, 9, 5, 2, 4, 1};
-
-    System.out.println("arr.toString() = " + new KthLargestElement().bubbleSort(arr, 5));
-  }
+    int bubbleSort(int[] arr, int kth) {
+        int KthElement = 0;
+        if (arr != null && arr.length > 1) {
+            int n = arr.length;
+            boolean swapped = true;
+            int k = 0;
+            while (n > 0 && swapped && k < kth) {
+                swapped = false;
+                for (int i = 0; i < n - 1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        int temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+                        swapped = true;
+                    }
+                    KthElement = arr[n - 1];
+                }
+                k++;
+                n--;
+            }
+        }
+        return KthElement;
+    }
 }

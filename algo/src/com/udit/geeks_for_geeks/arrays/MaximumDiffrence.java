@@ -14,33 +14,33 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 13 Jan, 2018 10:11 AM
  */
 public class MaximumDiffrence {
-  /**
-   * @see <a hre="https://www.geeksforgeeks.org/maximum-difference-between-two-elements/"> Link</a>
-   */
-
-  public int findMaxDiff(int[] arr) {
-    if (arr != null && arr.length > 0) {
-      int maxDiff = arr[1] - arr[0];
-      int min = arr[0];
-      int length = arr.length;
-      for (int i = 1; i < length; i++) {
-        if (arr[i] - min > maxDiff) {
-          maxDiff = arr[i] - min;
-        }
-        if (arr[i] < min) {
-          min = arr[i];
-        }
-      }
-      return maxDiff;
+    public static void main(String[] args) {
+        MaximumDiffrence maxdif = new MaximumDiffrence();
+        int arr[] = {1, 2, 90, 10, 110};
+        int size = arr.length;
+        System.out.println("MaximumDifference is " + maxdif.findMaxDiff(arr));
     }
-    return 0;
-  }
 
-  public static void main(String[] args) {
-    MaximumDiffrence maxdif = new MaximumDiffrence();
-    int arr[] = {1, 2, 90, 10, 110};
-    int size = arr.length;
-    System.out.println("MaximumDifference is " + maxdif.findMaxDiff(arr));
-  }
+    /**
+     * @see <a hre="https://www.geeksforgeeks.org/maximum-difference-between-two-elements/"> Link</a>
+     */
+
+    public int findMaxDiff(int[] arr) {
+        if (arr != null && arr.length > 0) {
+            int maxDiff = arr[1] - arr[0];
+            int min = arr[0];
+            int length = arr.length;
+            for (int i = 1; i < length; i++) {
+                if (arr[i] - min > maxDiff) {
+                    maxDiff = arr[i] - min;
+                }
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return maxDiff;
+        }
+        return 0;
+    }
 
 }

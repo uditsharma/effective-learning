@@ -14,35 +14,35 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 15 Jan, 2018 2:12 PM
  */
 public class StringRotation {
-  boolean isRotation(String input, String inputToCompare) {
-    if (input != null && !input.trim().isEmpty() && inputToCompare != null && !inputToCompare.trim().isEmpty()) {
-      String str = input + input;
-      return isSubString(str, inputToCompare);
+    public static void main(String[] args) {
+        String str1 = "AACD";
+        String str2 = "ACDA";
+        boolean isRotation = new StringRotation().isRotation(str1, str2);
+        System.out.println("isRotation = " + isRotation);
     }
-    return false;
-  }
 
-  private boolean isSubString(String str, String inputToCompare) {
-    char[] inputToCheck = inputToCompare.toCharArray();
-    char[] input = str.toCharArray();
-    int i = 0, j = 0;
-    while (i < (str.length()) && j < inputToCompare.length()) {
-      if (input[i] == inputToCheck[j]) {
-        j++;
-      } else if (input[i] == inputToCheck[0]) {
-        j = 1;
-      }
-      i++;
+    boolean isRotation(String input, String inputToCompare) {
+        if (input != null && !input.trim().isEmpty() && inputToCompare != null && !inputToCompare.trim().isEmpty()) {
+            String str = input + input;
+            return isSubString(str, inputToCompare);
+        }
+        return false;
     }
-    return j == inputToCompare.length();
-  }
 
-  public static void main(String[] args) {
-    String str1 = "AACD";
-    String str2 = "ACDA";
-    boolean isRotation = new StringRotation().isRotation(str1, str2);
-    System.out.println("isRotation = " + isRotation);
-  }
+    private boolean isSubString(String str, String inputToCompare) {
+        char[] inputToCheck = inputToCompare.toCharArray();
+        char[] input = str.toCharArray();
+        int i = 0, j = 0;
+        while (i < (str.length()) && j < inputToCompare.length()) {
+            if (input[i] == inputToCheck[j]) {
+                j++;
+            } else if (input[i] == inputToCheck[0]) {
+                j = 1;
+            }
+            i++;
+        }
+        return j == inputToCompare.length();
+    }
 
 
 }

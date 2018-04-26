@@ -14,33 +14,33 @@ package com.udit.geeks_for_geeks.stack.v1;
  * @since 16 Feb, 2018 10:03 AM
  */
 public class Stack_Using_Array {
-  int size;
-  int[] arr;
-  int curr = -1;
+    int size;
+    int[] arr;
+    int curr = -1;
 
-  public Stack_Using_Array(int size) {
-    this.size = size;
-    arr = new int[size];
-  }
-
-  void push(int data) {
-    if (size > curr) {
-      arr[++curr] = data;
+    public Stack_Using_Array(int size) {
+        this.size = size;
+        arr = new int[size];
     }
-    throw new IndexOutOfBoundsException("Stack is full");
-  }
 
-  int peek() {
-    if (curr > 0) {
-      return arr[curr];
+    void push(int data) {
+        if (size > curr) {
+            arr[++curr] = data;
+        }
+        throw new IndexOutOfBoundsException("Stack is full");
     }
-    return -1;
-  }
 
-  int pop() {
-    if (curr > 0) {
-      return arr[curr--];
+    int peek() {
+        if (curr > 0) {
+            return arr[curr];
+        }
+        return -1;
     }
-    return -1;
-  }
+
+    int pop() {
+        if (curr > 0) {
+            return arr[curr--];
+        }
+        return -1;
+    }
 }

@@ -17,53 +17,53 @@ import static java.lang.Math.abs;
  */
 public class RepeatElement {
 
-  /**
-   * @see <a href="https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/"></a>
-   */
-  void printDuplicates(int[] arr) {
-    if (arr != null && arr.length > 1) {
-      int size = arr.length;
-      int sumOfArray = 0, prodOfArray = 1;
-      for (int i = 0; i < size; i++) {
-        sumOfArray = sumOfArray + arr[i];
-        prodOfArray = prodOfArray * arr[i];
-      }
-      int n = size - 2;
-      int factOfN = fact(n);
-      int xPlusY = sumOfArray - (n * (n + 1) / 2);
-      int prodOfXandY = prodOfArray / factOfN;
-
-      int xMinusY = (int) Math.sqrt((xPlusY * xPlusY) - 4 * prodOfXandY);
-
-      System.out.println(" X = " + (xPlusY + xMinusY) / 2);
-      System.out.println(" y = " + (xPlusY - xMinusY) / 2);
+    public static void main(String[] args) {
+        RepeatElement repeat = new RepeatElement();
+        int arr[] = {4, 2, 4, 5, 2, 3, 1};
+        int arr_size = arr.length;
+        repeat.printDuplicates(arr);
+        repeat.printDuplicate2(arr);
     }
-  }
 
-  int fact(int n) {
-    return (n == 0) ? 1 : n * fact(n - 1);
-  }
+    /**
+     * @see <a href="https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/"></a>
+     */
+    void printDuplicates(int[] arr) {
+        if (arr != null && arr.length > 1) {
+            int size = arr.length;
+            int sumOfArray = 0, prodOfArray = 1;
+            for (int i = 0; i < size; i++) {
+                sumOfArray = sumOfArray + arr[i];
+                prodOfArray = prodOfArray * arr[i];
+            }
+            int n = size - 2;
+            int factOfN = fact(n);
+            int xPlusY = sumOfArray - (n * (n + 1) / 2);
+            int prodOfXandY = prodOfArray / factOfN;
 
-  void printDuplicate2(int arr[]) {
-    if (arr != null && arr.length > 1) {
-      int size = arr.length;
-      for (int i = 0; i < size; i++) {
-        if (arr[abs(arr[i])] > 0) {
-          arr[abs(arr[i])] = -arr[abs(arr[i])];
-        } else {
-          System.out.println("arr[i] = " + abs(arr[i]));
+            int xMinusY = (int) Math.sqrt((xPlusY * xPlusY) - 4 * prodOfXandY);
+
+            System.out.println(" X = " + (xPlusY + xMinusY) / 2);
+            System.out.println(" y = " + (xPlusY - xMinusY) / 2);
         }
-      }
     }
-  }
 
-  public static void main(String[] args) {
-    RepeatElement repeat = new RepeatElement();
-    int arr[] = {4, 2, 4, 5, 2, 3, 1};
-    int arr_size = arr.length;
-    repeat.printDuplicates(arr);
-    repeat.printDuplicate2(arr);
-  }
+    int fact(int n) {
+        return (n == 0) ? 1 : n * fact(n - 1);
+    }
+
+    void printDuplicate2(int arr[]) {
+        if (arr != null && arr.length > 1) {
+            int size = arr.length;
+            for (int i = 0; i < size; i++) {
+                if (arr[abs(arr[i])] > 0) {
+                    arr[abs(arr[i])] = -arr[abs(arr[i])];
+                } else {
+                    System.out.println("arr[i] = " + abs(arr[i]));
+                }
+            }
+        }
+    }
 
 
 }

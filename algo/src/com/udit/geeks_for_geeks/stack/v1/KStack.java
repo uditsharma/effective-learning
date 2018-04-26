@@ -14,4 +14,11 @@ package com.udit.geeks_for_geeks.stack.v1;
  * @since 17 Feb, 2018 2:08 AM
  */
 public class KStack {
+    public static void main(String[] args) {
+        String abc = "abc";
+        for (int i = 0; i < abc.length(); i++) {
+            Character.isDigit(abc.charAt(i));
+            new StringBuilder().append(abc.charAt(i));
+        }
+    }
 }

@@ -13,18 +13,24 @@ public class LRUCacheBakedByQueue {
         this.capacity = capacity;
     }
 
-    class Node {
-        String key;
-        int value;
-        Node pre;
-        Node next;
+    public static void main(String[] args) {
+        LRUCacheBakedByQueue cache = new LRUCacheBakedByQueue(5);
+        cache.set("udit1", 1);
+        cache.set("udit2", 2);
+        cache.set("udit3", 3);
+        cache.set("udit4", 4);
+        cache.set("udit5", 5);
+        cache.get("udit1");
+        cache.get("udit2");
+        cache.get("udit3");
+        cache.set("udit6", 6);
 
-        public Node(String key, int value) {
-            this.key = key;
-            this.value = value;
-        }
+        System.out.println(cache.get("udit1"));
+        System.out.println(cache.get("udit2"));
+        System.out.println(cache.get("udit3"));
+        System.out.println(cache.get("udit4"));
+
     }
-
 
     public void set(String key, int value) {
         Node node = keyVsNode.get(key);
@@ -77,22 +83,15 @@ public class LRUCacheBakedByQueue {
         return -1;
     }
 
-    public static void main(String[] args) {
-        LRUCacheBakedByQueue cache = new LRUCacheBakedByQueue(5);
-        cache.set("udit1", 1);
-        cache.set("udit2", 2);
-        cache.set("udit3", 3);
-        cache.set("udit4", 4);
-        cache.set("udit5", 5);
-        cache.get("udit1");
-        cache.get("udit2");
-        cache.get("udit3");
-        cache.set("udit6", 6);
+    class Node {
+        String key;
+        int value;
+        Node pre;
+        Node next;
 
-        System.out.println(cache.get("udit1"));
-        System.out.println(cache.get("udit2"));
-        System.out.println(cache.get("udit3"));
-        System.out.println(cache.get("udit4"));
-
+        public Node(String key, int value) {
+            this.key = key;
+            this.value = value;
+        }
     }
 }

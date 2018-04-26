@@ -17,61 +17,61 @@ import java.util.Stack;
  */
 public class InfixToPostFix {
 
-  // A utility function to return precedence of a given operator
-  // Higher returned value means higher precedence
-  int Prec(char ch) {
-    switch (ch) {
-      case '+':
-      case '-':
-        return 1;
-
-      case '*':
-      case '/':
-        return 2;
-
-      case '^':
-        return 3;
+    public static void main(String[] args) {
+        String exp = "a+b*(c^d-e)^(f+g*h)-i";
+        System.out.println(new InfixToPostFix().convert(exp));
     }
-    return -1;
-  }
 
-  public String convert(String exp) {
-    StringBuilder result = new StringBuilder();
-    if (exp != null && exp.length() > 0) {
-      Stack<Character> stack = new Stack<>();
-      int length = exp.length();
-      for (int i = 0; i < length; i++) {
-        char ch = exp.charAt(i);
-        if (Character.isLetterOrDigit(ch)) {
-          result.append(ch);
-        } else if ('(' == ch) {
-          stack.push(ch);
-        } else if (')' == ch) {
-          while (!stack.isEmpty() && stack.peek() != '(') {
-            result.append(stack.pop());
-          }
-          if (stack.isEmpty()) {
-            throw new IllegalArgumentException("Invalid Expression");
-          } else {
-            stack.pop();
-          }
-        } else {
-          while (!stack.isEmpty() && Prec(stack.peek()) >= Prec(ch)) {
-            result = result.append(stack.pop());
-          }
-          stack.push(ch);
+    // A utility function to return precedence of a given operator
+    // Higher returned value means higher precedence
+    int Prec(char ch) {
+        switch (ch) {
+            case '+':
+            case '-':
+                return 1;
+
+            case '*':
+            case '/':
+                return 2;
+
+            case '^':
+                return 3;
         }
-      }
-      while (!stack.isEmpty()) {
-        result.append(stack.pop());
-      }
+        return -1;
     }
-    return result.toString();
-  }
 
-  public static void main(String[] args)
-  {
-    String exp = "a+b*(c^d-e)^(f+g*h)-i";
-    System.out.println(new InfixToPostFix().convert(exp));
-  }
+    public String convert(String exp) {
+        StringBuilder result = new StringBuilder();
+        if (exp != null && exp.length() > 0) {
+            Stack<Character> stack = new Stack<>();
+
+            int length = exp.length();
+            for (int i = 0; i < length; i++) {
+                char ch = exp.charAt(i);
+                if (Character.isLetterOrDigit(ch)) {
+                    result.append(ch);
+                } else if ('(' == ch) {
+                    stack.push(ch);
+                } else if (')' == ch) {
+                    while (!stack.isEmpty() && stack.peek() != '(') {
+                        result.append(stack.pop());
+                    }
+                    if (stack.isEmpty()) {
+                        throw new IllegalArgumentException("Invalid Expression");
+                    } else {
+                        stack.pop();
+                    }
+                } else {
+                    while (!stack.isEmpty() && Prec(stack.peek()) >= Prec(ch)) {
+                        result = result.append(stack.pop());
+                    }
+                    stack.push(ch);
+                }
+            }
+            while (!stack.isEmpty()) {
+                result.append(stack.pop());
+            }
+        }
+        return result.toString();
+    }
 }

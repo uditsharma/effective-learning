@@ -14,38 +14,38 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 08 Jan, 2018 8:29 PM
  */
 public class LeadersInArray {
-  // Leader = if it is greater then all the element from it's right.
-  void findLeaders(int arr[]) {
-    if (arr != null && arr.length > 0) {
-      int size = arr.length;
-      for (int i = 0; i < size; i++) {
-        boolean isLeader = true;
-        for (int k = i; k < size && isLeader; k++) {
-          isLeader = arr[i] > arr[k];
-        }
-        if (isLeader) {
-          System.out.println(arr[i]);
-        }
-      }
+    public static void main(String[] args) {
+        int arr[] = {16, 17, 4, 3, 5, 2};
+        new LeadersInArray().leaders(arr);
     }
-  }
 
-  //O(n)
-  private void leaders(int[] arr) {
-    if (arr != null) {
-      int size = arr.length;
-      int max = 0;
-      for (int k = size - 1; k >= 0; k--) {
-        if (arr[k] > max) {
-          max = arr[k];
-          System.out.println(max);
+    // Leader = if it is greater then all the element from it's right.
+    void findLeaders(int arr[]) {
+        if (arr != null && arr.length > 0) {
+            int size = arr.length;
+            for (int i = 0; i < size; i++) {
+                boolean isLeader = true;
+                for (int k = i; k < size && isLeader; k++) {
+                    isLeader = arr[i] > arr[k];
+                }
+                if (isLeader) {
+                    System.out.println(arr[i]);
+                }
+            }
         }
-      }
     }
-  }
 
-  public static void main(String[] args) {
-    int arr[] = {16, 17, 4, 3, 5, 2};
-    new LeadersInArray().leaders(arr);
-  }
+    //O(n)
+    private void leaders(int[] arr) {
+        if (arr != null) {
+            int size = arr.length;
+            int max = 0;
+            for (int k = size - 1; k >= 0; k--) {
+                if (arr[k] > max) {
+                    max = arr[k];
+                    System.out.println(max);
+                }
+            }
+        }
+    }
 }

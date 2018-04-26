@@ -15,35 +15,35 @@ package com.udit.geeks_for_geeks.arrays;
  */
 public class ElementAtIndexAfterRotation {
 
-  int find(int[] arr, int rotations[][], int index) {
-    if (arr != null && arr.length > 1) {
-      int rotation = rotations.length;
-      for (int i = rotation - 1; i >= 0; i--) {
-        int left = rotations[i][0];
-        int right = rotations[i][1];
-        if (index >= left && index <= right) {
-          if (index == left) {
-            index = right;
-          } else {
-            index--;
-          }
-        }
-      }
-      return arr[index];
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        // No. of rotations
+        int rotations = 2;
+
+        // Ranges according to 0-based indexing
+        int[][] ranges = {{0, 2}, {0, 3}};
+
+        int index = 1;
+        System.out.println(new ElementAtIndexAfterRotation().find(arr, ranges, index));
     }
-    return -1;
-  }
 
-  public static void main(String[] args) {
-    int[] arr = {1, 2, 3, 4, 5};
-
-    // No. of rotations
-    int rotations = 2;
-
-    // Ranges according to 0-based indexing
-    int[][] ranges = {{0, 2}, {0, 3}};
-
-    int index = 1;
-    System.out.println(new ElementAtIndexAfterRotation().find(arr, ranges, index));
-  }
+    int find(int[] arr, int rotations[][], int index) {
+        if (arr != null && arr.length > 1) {
+            int rotation = rotations.length;
+            for (int i = rotation - 1; i >= 0; i--) {
+                int left = rotations[i][0];
+                int right = rotations[i][1];
+                if (index >= left && index <= right) {
+                    if (index == left) {
+                        index = right;
+                    } else {
+                        index--;
+                    }
+                }
+            }
+            return arr[index];
+        }
+        return -1;
+    }
 }

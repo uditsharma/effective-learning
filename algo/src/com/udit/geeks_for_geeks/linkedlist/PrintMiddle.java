@@ -14,12 +14,12 @@ package com.udit.geeks_for_geeks.linkedlist;
  * @since 29 Jan, 2018 11:16 PM
  */
 public class PrintMiddle {
-  public static void main(String[] args) {
-    LinkedList llist = new LinkedList();
-    for (int i = 5; i > 0; --i) {
-      llist.push(i);
-      llist.printList();
-      llist.printMiddle();
+    public static void main(String[] args) {
+        LinkedList llist = new LinkedList();
+        for (int i = 5; i > 0; --i) {
+            llist.push(i);
+            llist.printList();
+            llist.printMiddle();
+        }
     }
-  }
 }

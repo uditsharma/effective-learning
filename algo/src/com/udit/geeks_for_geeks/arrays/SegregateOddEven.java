@@ -16,26 +16,26 @@ import java.util.Arrays;
  * @since 13 Jan, 2018 1:05 PM
  */
 public class SegregateOddEven {
-  void segregateEvenOdd(int[] arr) {
-    if (arr != null) {
-      int size = arr.length;
-      int left = 0, right = size - 1;
-      while (left < right) {
-        if (arr[left] % 2 != 0) {
-          int temp = arr[right];
-          arr[right] = arr[left];
-          arr[left] = temp;
-          right--;
-        } else {
-          left++;
-        }
-      }
-      System.out.println("arr = " + Arrays.toString(arr));
+    public static void main(String[] args) {
+        int arr[] = {12, 34, 45, 9, 8, 90, 3, 2, 3, 4, 6, 6, 6, 6, 6, 6, 6, 8, 199};
+        new SegregateOddEven().segregateEvenOdd(arr);
     }
-  }
 
-  public static void main(String[] args) {
-    int arr[] = {12, 34, 45, 9, 8, 90, 3, 2, 3, 4, 6, 6, 6, 6, 6, 6, 6, 8, 199};
-    new SegregateOddEven().segregateEvenOdd(arr);
-  }
+    void segregateEvenOdd(int[] arr) {
+        if (arr != null) {
+            int size = arr.length;
+            int left = 0, right = size - 1;
+            while (left < right) {
+                if (arr[left] % 2 != 0) {
+                    int temp = arr[right];
+                    arr[right] = arr[left];
+                    arr[left] = temp;
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+            System.out.println("arr = " + Arrays.toString(arr));
+        }
+    }
 }

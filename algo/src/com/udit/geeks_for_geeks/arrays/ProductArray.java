@@ -16,32 +16,32 @@ import java.util.Arrays;
  * @since 13 Jan, 2018 12:48 PM
  */
 public class ProductArray {
-  public void prodArray(int[] arr) {
-    if (arr != null) {
-      int size = arr.length;
-      int[] prod = new int[size];
-      int i = 0, temp = 1;
-      for (i = 0; i < size; i++) {
-        prod[i] = 1;
-      }
-      for (i = 0; i < size; i++) {
-        prod[i] = temp;
-        temp = temp * arr[i];
-      }
-      temp = 1;
-      for (i = size - 1; i >= 0; i--) {
-        prod[i] = temp * prod[i];
-        temp = temp * arr[i];
-      }
-      System.out.println(Arrays.toString(prod));
+    public static void main(String[] args) {
+        ProductArray pa = new ProductArray();
+        int arr[] = {10, 3, 5, 6, 2};
+        int n = arr.length;
+        System.out.println("The product array is : ");
+        pa.prodArray(arr);
     }
-  }
 
-  public static void main(String[] args) {
-    ProductArray pa = new ProductArray();
-    int arr[] = {10, 3, 5, 6, 2};
-    int n = arr.length;
-    System.out.println("The product array is : ");
-    pa.prodArray(arr);
-  }
+    public void prodArray(int[] arr) {
+        if (arr != null) {
+            int size = arr.length;
+            int[] prod = new int[size];
+            int i = 0, temp = 1;
+            for (i = 0; i < size; i++) {
+                prod[i] = 1;
+            }
+            for (i = 0; i < size; i++) {
+                prod[i] = temp;
+                temp = temp * arr[i];
+            }
+            temp = 1;
+            for (i = size - 1; i >= 0; i--) {
+                prod[i] = temp * prod[i];
+                temp = temp * arr[i];
+            }
+            System.out.println(Arrays.toString(prod));
+        }
+    }
 }

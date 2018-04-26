@@ -14,29 +14,29 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 08 Jan, 2018 10:49 AM
  */
 public class SticklerThief {
-  int moneyToStole(int[] arr) {
-    if (arr != null) {
-      int size = arr.length;
-      if (size == 1) {
-        return arr[0];
-      }
-      if (size == 2) {
-        return Math.max(arr[0], arr[1]);
-      }
-      int d[] = new int[size];
-      d[0] = arr[0];
-      d[1] = Math.max(arr[0], arr[1]);
-      for (int i = 2; i < size; i++) {
-        d[i] = Math.max(arr[i] + d[i - 2], d[i - 1]);
-      }
-      return d[size - 1];
+    public static void main(String[] args) {
+        int arr[] = {5, 5, 10, 100, 10, 5};
+        int moneyToStole = new SticklerThief().moneyToStole(arr);
+        System.out.println("moneyToStole = " + moneyToStole);
     }
-    return 0;
-  }
 
-  public static void main(String[] args) {
-    int arr[] = {5, 5, 10, 100, 10, 5};
-    int moneyToStole = new SticklerThief().moneyToStole(arr);
-    System.out.println("moneyToStole = " + moneyToStole);
-  }
+    int moneyToStole(int[] arr) {
+        if (arr != null) {
+            int size = arr.length;
+            if (size == 1) {
+                return arr[0];
+            }
+            if (size == 2) {
+                return Math.max(arr[0], arr[1]);
+            }
+            int d[] = new int[size];
+            d[0] = arr[0];
+            d[1] = Math.max(arr[0], arr[1]);
+            for (int i = 2; i < size; i++) {
+                d[i] = Math.max(arr[i] + d[i - 2], d[i - 1]);
+            }
+            return d[size - 1];
+        }
+        return 0;
+    }
 }

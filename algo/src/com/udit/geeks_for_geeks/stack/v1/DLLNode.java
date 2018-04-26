@@ -14,11 +14,11 @@ package com.udit.geeks_for_geeks.stack.v1;
  * @since 16 Feb, 2018 11:39 PM
  */
 public class DLLNode {
-  int data;
-  DLLNode prev;
-  DLLNode next;
+    int data;
+    DLLNode prev;
+    DLLNode next;
 
-  public DLLNode(int data) {
-    this.data = data;
-  }
+    public DLLNode(int data) {
+        this.data = data;
+    }
 }

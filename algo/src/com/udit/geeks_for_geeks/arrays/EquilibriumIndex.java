@@ -14,31 +14,31 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 13 Jan, 2018 5:27 PM
  */
 public class EquilibriumIndex {
-  /**
-   * @see <a href="https://www.geeksforgeeks.org/equilibrium-index-of-an-array/"></a>
-   */
-  int equilibrium(int[] arr) {
-    if (arr != null && arr.length > 2) {
-      int size = arr.length, totalSum = 0;
-      for (int i = 0; i < size; i++) {
-        totalSum = totalSum + arr[i];
-      }
-      int leftSum = 0;
-      for (int i = 1; i < size - 1; i++) {
-        leftSum = arr[i - 1] + leftSum;
-        int rightSum = totalSum - leftSum - arr[i];
-        if (rightSum == leftSum) {
-          return i;
-        }
-      }
+    public static void main(String[] args) {
+        EquilibriumIndex equi = new EquilibriumIndex();
+        int arr[] = {-7, 1, 5, 2, -4, 3, 0};
+        int arr_size = arr.length;
+        System.out.println(equi.equilibrium(arr));
     }
-    return -1;
-  }
 
-  public static void main(String[] args) {
-    EquilibriumIndex equi = new EquilibriumIndex();
-    int arr[] = {-7, 1, 5, 2, -4, 3, 0};
-    int arr_size = arr.length;
-    System.out.println(equi.equilibrium(arr));
-  }
+    /**
+     * @see <a href="https://www.geeksforgeeks.org/equilibrium-index-of-an-array/"></a>
+     */
+    int equilibrium(int[] arr) {
+        if (arr != null && arr.length > 2) {
+            int size = arr.length, totalSum = 0;
+            for (int i = 0; i < size; i++) {
+                totalSum = totalSum + arr[i];
+            }
+            int leftSum = 0;
+            for (int i = 1; i < size - 1; i++) {
+                leftSum = arr[i - 1] + leftSum;
+                int rightSum = totalSum - leftSum - arr[i];
+                if (rightSum == leftSum) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 }

@@ -15,27 +15,27 @@ package com.udit.geeks_for_geeks.random;
  */
 public class SquareFreeNumber {
 
-  boolean isSquareFree(int number) {
-    if (number % 2 == 0) {
-      number = number / 2;
-      if (number % 2 == 0) {
-        return false;
-      }
+    public static void main(String[] args) {
+        boolean squareFree = new SquareFreeNumber().isSquareFree(2310);
+        System.out.println("squareFree = " + squareFree);
     }
-    // we are doing i+2 becasue number is odd and it
-    for (int i = 3; i < Math.sqrt(number); i = i + 2) {
-      if (number % i == 0) {
-        number = number / i;
-      }
-      if (number % i == 0) {
-        return false;
-      }
-    }
-    return true;
-  }
 
-  public static void main(String[] args) {
-    boolean squareFree = new SquareFreeNumber().isSquareFree(2310);
-    System.out.println("squareFree = " + squareFree);
-  }
+    boolean isSquareFree(int number) {
+        if (number % 2 == 0) {
+            number = number / 2;
+            if (number % 2 == 0) {
+                return false;
+            }
+        }
+        // we are doing i+2 becasue number is odd and it
+        for (int i = 3; i < Math.sqrt(number); i = i + 2) {
+            if (number % i == 0) {
+                number = number / i;
+            }
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

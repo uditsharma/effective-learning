@@ -14,70 +14,70 @@ package com.udit.geeks_for_geeks.queues;
  * @since 27 Feb, 2018 11:14 PM
  */
 public class Queue {
-  int[] values;
-  int front, rear, size;
-  int capacity;
+    int[] values;
+    int front, rear, size;
+    int capacity;
 
-  public Queue(int capacity) {
-    this.capacity = capacity;
-    this.values = new int[capacity];
-    this.front = 0;
-    this.rear = capacity - 1;
-    this.size = 0;
-  }
-
-  boolean isFull() {
-    return (size == capacity);
-  }
-
-  boolean isEmpty() {
-    return size == 0;
-  }
-
-  void enqueue(int data) {
-    if (isFull()) {
-      throw new IllegalStateException("Queue is full");
+    public Queue(int capacity) {
+        this.capacity = capacity;
+        this.values = new int[capacity];
+        this.front = 0;
+        this.rear = capacity - 1;
+        this.size = 0;
     }
-    rear = (rear + 1) % capacity;
-    size++;
-    values[rear] = data;
-  }
 
-  int deQueue() {
-    int data = values[front];
-    front = (front + 1) % capacity;
-    size--;
-    return data;
-  }
+    public static void main(String[] args) {
+        Queue queue = new Queue(1000);
 
-  int front() {
-    if (!isEmpty()) {
-      return values[front];
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+
+        System.out.println(queue.deQueue() + " dequeued from queue\n");
+
+        System.out.println("Front item is " + queue.front());
+
+        System.out.println("Rear item is " + queue.rear());
     }
-    return -1;
-  }
 
-  int rear() {
-    if (!isEmpty()) {
-      return values[rear];
+    boolean isFull() {
+        return (size == capacity);
     }
-    return -1;
-  }
 
-  public static void main(String[] args) {
-    Queue queue = new Queue(1000);
+    boolean isEmpty() {
+        return size == 0;
+    }
 
-    queue.enqueue(10);
-    queue.enqueue(20);
-    queue.enqueue(30);
-    queue.enqueue(40);
+    void enqueue(int data) {
+        if (isFull()) {
+            throw new IllegalStateException("Queue is full");
+        }
+        rear = (rear + 1) % capacity;
+        size++;
+        values[rear] = data;
+    }
 
-    System.out.println(queue.deQueue() + " dequeued from queue\n");
+    int deQueue() {
+        int data = values[front];
+        front = (front + 1) % capacity;
+        size--;
+        return data;
+    }
 
-    System.out.println("Front item is " + queue.front());
+    int front() {
+        if (!isEmpty()) {
+            return values[front];
+        }
+        return -1;
+    }
 
-    System.out.println("Rear item is " + queue.rear());
-  }
+    int rear() {
+        if (!isEmpty()) {
+            return values[rear];
+        }
+        return -1;
+    }
 
 
 }

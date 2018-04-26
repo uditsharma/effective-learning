@@ -17,49 +17,7 @@ import java.util.Stack;
  */
 public class PostFixEvaluate {
 
-  int evaluate(String expr) {
-    if (expr != null && !expr.trim().isEmpty()) {
-      char[] chars = expr.toCharArray();
-      int length = chars.length;
-      Stack<Integer> operands = new Stack<>();
-
-      for (int i = 0; i < length; i++) {
-        char token = chars[i];
-        if (token != ' ') {
-          if (Character.isDigit(token)) {
-            operands.push(token - '0');
-          } else {
-            if (operands.size() > 1) {
-              Integer a = operands.pop();
-              Integer b = operands.pop();
-              int value = op(b, a, token);
-              operands.push(value);
-            } else {
-              throw new IllegalArgumentException("Invalid Postfix expression " + expr);
-            }
-          }
-        }
-      }
-      return operands.pop();
-    }
-    return -1;
-  }
-
-  int op(int a, int b, char op) {
-    switch (op) {
-      case '+':
-        return a + b;
-      case '-':
-        return a - b;
-      case '/':
-        return a / b;
-      case '*':
-        return a * b;
-    }
-    throw new IllegalArgumentException("Invalid Operator " + op);
-  }
-
-  public static void main(String[] args) {
+    public static void main(String[] args) {
     /*String exp = "231*+9-";
     System.out.println(new GFG().evaluate(exp));
 
@@ -69,6 +27,48 @@ public class PostFixEvaluate {
       System.out.println(evaluate(sc.next()));
 
     }*/
-  }
+    }
+
+    int evaluate(String expr) {
+        if (expr != null && !expr.trim().isEmpty()) {
+            char[] chars = expr.toCharArray();
+            int length = chars.length;
+            Stack<Integer> operands = new Stack<>();
+
+            for (int i = 0; i < length; i++) {
+                char token = chars[i];
+                if (token != ' ') {
+                    if (Character.isDigit(token)) {
+                        operands.push(token - '0');
+                    } else {
+                        if (operands.size() > 1) {
+                            Integer a = operands.pop();
+                            Integer b = operands.pop();
+                            int value = op(b, a, token);
+                            operands.push(value);
+                        } else {
+                            throw new IllegalArgumentException("Invalid Postfix expression " + expr);
+                        }
+                    }
+                }
+            }
+            return operands.pop();
+        }
+        return -1;
+    }
+
+    int op(int a, int b, char op) {
+        switch (op) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '/':
+                return a / b;
+            case '*':
+                return a * b;
+        }
+        throw new IllegalArgumentException("Invalid Operator " + op);
+    }
 
 }

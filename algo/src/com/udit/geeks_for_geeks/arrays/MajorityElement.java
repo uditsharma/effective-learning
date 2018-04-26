@@ -14,22 +14,22 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 10 Jan, 2018 4:14 PM
  */
 public class MajorityElement {
-  boolean isMajority(int[] arr, int x) {
-    if (arr != null) {
-      int length = arr.length;
-      int nTimes = length / 2;
-      int presentTimes = 0;
-      for (int anArr : arr) {
-        if (anArr == x) {
-          presentTimes++;
-        }
-      }
-      return presentTimes > nTimes;
+    public static void main(String[] args) {
+
     }
-    return false;
-  }
 
-  public static void main(String[] args) {
-
-  }
+    boolean isMajority(int[] arr, int x) {
+        if (arr != null) {
+            int length = arr.length;
+            int nTimes = length / 2;
+            int presentTimes = 0;
+            for (int anArr : arr) {
+                if (anArr == x) {
+                    presentTimes++;
+                }
+            }
+            return presentTimes > nTimes;
+        }
+        return false;
+    }
 }

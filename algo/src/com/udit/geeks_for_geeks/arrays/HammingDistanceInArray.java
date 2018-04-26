@@ -14,29 +14,29 @@ package com.udit.geeks_for_geeks.arrays;
  * @since 15 Jan, 2018 10:43 AM
  */
 public class HammingDistanceInArray {
-  int maxHammingDistance(int[] arr) {
-    int maxHammingDistance = 0;
-    if (arr != null && arr.length > 1) {
-      int temp[] = new int[2 * arr.length];
-      System.arraycopy(arr, 0, temp, 0, arr.length);
-      System.arraycopy(arr, 0, temp, arr.length, arr.length);
-      for (int i = 1; i < (arr.length + 1); i++) {
-        int tempDistance = 0;
-        int k = i;
-        for (int j = 0; j < arr.length; j++) {
-          if (arr[j] != temp[k++]) {
-            tempDistance++;
-          }
-        }
-        maxHammingDistance = Math.max(maxHammingDistance, tempDistance);
-      }
+    public static void main(String[] args) {
+        int arr[] = {2, 4, 6, 8};
+        int maxHammingDistance = new HammingDistanceInArray().maxHammingDistance(arr);
+        System.out.println("maxHammingDistance = " + maxHammingDistance);
     }
-    return maxHammingDistance;
-  }
 
-  public static void main(String[] args) {
-    int arr[] = {2, 4, 6, 8};
-    int maxHammingDistance = new HammingDistanceInArray().maxHammingDistance(arr);
-    System.out.println("maxHammingDistance = " + maxHammingDistance);
-  }
+    int maxHammingDistance(int[] arr) {
+        int maxHammingDistance = 0;
+        if (arr != null && arr.length > 1) {
+            int temp[] = new int[2 * arr.length];
+            System.arraycopy(arr, 0, temp, 0, arr.length);
+            System.arraycopy(arr, 0, temp, arr.length, arr.length);
+            for (int i = 1; i < (arr.length + 1); i++) {
+                int tempDistance = 0;
+                int k = i;
+                for (int j = 0; j < arr.length; j++) {
+                    if (arr[j] != temp[k++]) {
+                        tempDistance++;
+                    }
+                }
+                maxHammingDistance = Math.max(maxHammingDistance, tempDistance);
+            }
+        }
+        return maxHammingDistance;
+    }
 }

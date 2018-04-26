@@ -15,20 +15,20 @@ package com.udit.geeks_for_geeks.random;
  */
 public class Balloon {
 
-  private String color;
+    private String color;
 
-  public Balloon() {
-  }
+    public Balloon() {
+    }
 
-  public Balloon(String c) {
-    this.color = c;
-  }
+    public Balloon(String c) {
+        this.color = c;
+    }
 
-  public String getColor() {
-    return color;
-  }
+    public String getColor() {
+        return color;
+    }
 
-  public void setColor(String color) {
-    this.color = color;
-  }
+    public void setColor(String color) {
+        this.color = color;
+    }
 }

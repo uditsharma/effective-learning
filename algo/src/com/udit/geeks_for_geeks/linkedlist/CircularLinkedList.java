@@ -14,37 +14,37 @@ package com.udit.geeks_for_geeks.linkedlist;
  * @since 28 Jan, 2018 1:16 PM
  */
 public class CircularLinkedList {
-  private Node head;
+    private Node head;
 
-  public void push(int data) {
-    Node node = new Node(data);
-    if (head == null) {
-      head = node;
-      node.next = head;
-    } else {
-      Node curr = head;
-      while (curr.next != head) {
-        curr = curr.next;
-      }
-      node.next = head;
-      head = node;
-      curr.next = head;
+    public void push(int data) {
+        Node node = new Node(data);
+        if (head == null) {
+            head = node;
+            node.next = head;
+        } else {
+            Node curr = head;
+            while (curr.next != head) {
+                curr = curr.next;
+            }
+            node.next = head;
+            head = node;
+            curr.next = head;
+        }
     }
-  }
 
-  public void append(int data) {
-    Node node = new Node(data);
-    if (head == null) {
-      head = node;
-      node.next = head;
-    } else {
-      Node curr = head;
-      while (curr.next != head) {
-        curr = curr.next;
-      }
-      node.next = head;
-      curr.next = node;
+    public void append(int data) {
+        Node node = new Node(data);
+        if (head == null) {
+            head = node;
+            node.next = head;
+        } else {
+            Node curr = head;
+            while (curr.next != head) {
+                curr = curr.next;
+            }
+            node.next = head;
+            curr.next = node;
+        }
     }
-  }
 
 }

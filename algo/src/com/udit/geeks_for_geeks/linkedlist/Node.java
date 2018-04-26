@@ -14,11 +14,11 @@ package com.udit.geeks_for_geeks.linkedlist;
  * @since 19 Jan, 2018 12:41 AM
  */
 public class Node {
-  int data;
-  Node next;
+    int data;
+    Node next;
 
-  Node(int d) {
-    data = d;
-    next = null;
-  }
+    Node(int d) {
+        data = d;
+        next = null;
+    }
 }

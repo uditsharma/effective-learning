@@ -14,15 +14,15 @@ package com.udit.geeks_for_geeks.linkedlist;
  * @since 28 Jan, 2018 12:16 PM
  */
 public class DoublyListNode {
-  private int data;
-  DoublyListNode next;
-  DoublyListNode prev;
+    DoublyListNode next;
+    DoublyListNode prev;
+    private int data;
 
-  public DoublyListNode(int data) {
-    this.data = data;
-  }
+    public DoublyListNode(int data) {
+        this.data = data;
+    }
 
-  public int getData() {
-    return data;
-  }
+    public int getData() {
+        return data;
+    }
 }

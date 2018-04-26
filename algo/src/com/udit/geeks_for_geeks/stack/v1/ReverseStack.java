@@ -16,32 +16,32 @@ import java.util.Stack;
  * @since 26 Feb, 2018 10:51 PM
  */
 public class ReverseStack {
-  void reverse(Stack<Integer> st) {
-    if (!st.isEmpty()) {
-      int val = st.pop();
-      reverse(st);
-      insertAtBottom(st, val);
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        System.out.println("stack = " + stack);
+        new ReverseStack().reverse(stack);
+        System.out.println("stack = " + stack);
     }
-  }
 
-  private void insertAtBottom(Stack<Integer> st, int val) {
-    if (st.isEmpty()) {
-      st.push(val);
-    } else {
-      int data = st.pop();
-      insertAtBottom(st, val);
-      st.push(data);
+    void reverse(Stack<Integer> st) {
+        if (!st.isEmpty()) {
+            int val = st.pop();
+            reverse(st);
+            insertAtBottom(st, val);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    Stack<Integer> stack = new Stack<>();
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
-    stack.push(4);
-    System.out.println("stack = " + stack);
-    new ReverseStack().reverse(stack);
-    System.out.println("stack = " + stack);
-  }
+    private void insertAtBottom(Stack<Integer> st, int val) {
+        if (st.isEmpty()) {
+            st.push(val);
+        } else {
+            int data = st.pop();
+            insertAtBottom(st, val);
+            st.push(data);
+        }
+    }
 }

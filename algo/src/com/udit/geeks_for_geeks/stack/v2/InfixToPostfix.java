@@ -4,6 +4,13 @@ import java.util.Stack;
 
 public class InfixToPostfix {
 
+    public static void main(String[] args) {
+        String postFix = new InfixToPostfix().convert("A + B * C - D / E");
+        String postFix1 = new InfixToPostfix().convert("A * B - ( C - D ) + E");
+        System.out.println("postFix = " + postFix);
+        System.out.println("postFix1 = " + postFix1);
+    }
+
     public String convert(String expr) {
         if (expr != null && !expr.trim().isEmpty()) {
             StringBuilder builder = new StringBuilder();
@@ -54,13 +61,6 @@ public class InfixToPostfix {
                 return 3;
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        String postFix = new InfixToPostfix().convert("A + B * C - D / E");
-        String postFix1 = new InfixToPostfix().convert("A * B - ( C - D ) + E");
-        System.out.println("postFix = " + postFix);
-        System.out.println("postFix1 = " + postFix1);
     }
 
 }

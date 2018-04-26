@@ -16,27 +16,27 @@ import java.util.Stack;
  * @since 20 Feb, 2018 11:03 PM
  */
 public class NextGreaterElement {
-  void printNGE(int[] arr) {
-    if (arr != null && arr.length > 0) {
-      Stack<Integer> stack = new Stack<>();
-      stack.push(arr[0]);
-      for (int i = 1; i < arr.length; i++) {
-        int next = arr[i];
-        while (!stack.isEmpty() && stack.peek() < next) {
-          System.out.println(stack.pop() + " ----> " + next);
-        }
-        stack.push(next);
-      }
-      while (!stack.isEmpty()) {
-        System.out.println(stack.pop() + " ----> -1");
+    public static void main(String[] args) {
+        int arr[] = {4, 5, 2, 25};
 
-      }
+        new NextGreaterElement().printNGE(arr);
     }
-  }
 
-  public static void main(String[] args) {
-    int arr[] = {4, 5, 2, 25};
+    void printNGE(int[] arr) {
+        if (arr != null && arr.length > 0) {
+            Stack<Integer> stack = new Stack<>();
+            stack.push(arr[0]);
+            for (int i = 1; i < arr.length; i++) {
+                int next = arr[i];
+                while (!stack.isEmpty() && stack.peek() < next) {
+                    System.out.println(stack.pop() + " ----> " + next);
+                }
+                stack.push(next);
+            }
+            while (!stack.isEmpty()) {
+                System.out.println(stack.pop() + " ----> -1");
 
-    new NextGreaterElement().printNGE(arr);
-  }
+            }
+        }
+    }
 }
